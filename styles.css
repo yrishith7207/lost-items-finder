@@ -1,0 +1,280 @@
+:root {
+  --bg: #f4f6fb;
+  --card: #ffffff;
+  --text: #1c2333;
+  --muted: #5d667a;
+  --border: #dfe3ee;
+  --primary: #3b5bdb;
+  --lost: #d9480f;
+  --found: #2b8a3e;
+  --returned: #6741d9;
+  --radius: 12px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 16px 32px;
+}
+
+.hero {
+  text-align: center;
+  padding: 36px 0 20px;
+}
+
+.hero h1 {
+  margin: 0 0 6px;
+  font-size: 2rem;
+}
+
+.hero p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.stats {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+
+.stat {
+  padding: 4px 14px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  background: var(--card);
+  border: 1px solid var(--border);
+}
+.stat.lost { color: var(--lost); }
+.stat.found { color: var(--found); }
+.stat.returned { color: var(--returned); }
+
+.layout {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+@media (max-width: 800px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px;
+}
+
+.form-card h2 {
+  margin: 0 0 14px;
+  font-size: 1.15rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+input,
+select,
+textarea {
+  font: inherit;
+  font-weight: 400;
+  padding: 9px 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--text);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 1px;
+}
+
+.error {
+  color: #c92a2a;
+  font-weight: 400;
+  font-size: 0.8rem;
+}
+
+.toggle {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.toggle button {
+  padding: 9px;
+  border: 1px solid var(--border);
+  background: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.85rem;
+}
+.toggle button.active.lost {
+  background: var(--lost);
+  border-color: var(--lost);
+  color: #fff;
+}
+.toggle button.active.found {
+  background: var(--found);
+  border-color: var(--found);
+  color: #fff;
+}
+
+button.primary {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  padding: 11px;
+  border-radius: 8px;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+button.primary:hover {
+  filter: brightness(1.08);
+}
+
+.list-section {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.filters {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.filter-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.check {
+  flex-direction: row;
+  align-items: center;
+  gap: 6px;
+  font-weight: 400;
+}
+
+.items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.item.done {
+  opacity: 0.6;
+}
+
+.item h3 {
+  margin: 8px 0 2px;
+  font-size: 1.1rem;
+}
+
+.item p {
+  margin: 4px 0;
+}
+
+.meta {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.item-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.date {
+  margin-left: auto;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 2px 8px;
+  border-radius: 6px;
+  color: #fff;
+}
+.badge.lost { background: var(--lost); }
+.badge.found { background: var(--found); }
+.badge.returned { background: var(--returned); }
+
+.actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.actions button {
+  font: inherit;
+  font-size: 0.85rem;
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: #fff;
+  cursor: pointer;
+}
+.actions button:hover {
+  background: #f1f3f9;
+}
+.actions .danger {
+  color: #c92a2a;
+}
+
+.empty {
+  text-align: center;
+  color: var(--muted);
+}
+
+footer {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.8rem;
+  margin-top: 28px;
+}
